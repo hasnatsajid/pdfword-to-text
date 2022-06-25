@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Pdf & Word to text converter</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+        background-color: #fafafa;
+      }
+
+      .wrapper {
+        width: 80%;
+        margin: 15% auto;
+      }
+
+      .files p {
+        margin: 1rem 0px;
+        font-size: 14px;
+        padding: 0px 3rem;
+      }
+
+      .files label {
+        background-color: #0025ea;
+        color: white;
+        padding: 6px 3rem;
+        border-radius: 25px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .review-edit input {
+        outline: none;
+        border: none;
+        background-color: #0025ea;
+        color: white;
+        padding: 7px 2.2rem;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 2rem 0;
+      }
+
+      .essay {
+        margin: 3rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form action="/" id="uploadForm" enctype="multipart/form-data" method="post">
+        <div class="files">
+          <label for="files">+ Upload Essays</label>
+          <input type="file" multiple style="visibility: hidden" name="multi-files" id="files" />
+          <p>Max File size</p>
+        </div>
+
+        <div class="review-edit">
+          <input type="submit" value="Review & Edit" />
+        </div>
+      </form>
+
+      <div class="essay">
+        <p>Essay name</p>
+        <textarea name="" id="" cols="90" rows="10"></textarea>
+      </div>
+      <div class="essay">
+        <p>Essay name</p>
+        <textarea name="" id="" cols="90" rows="10"></textarea>
+      </div>
+      <div class="essay">
+        <p>Essay name</p>
+        <textarea name="" id="" cols="90" rows="10"></textarea>
+      </div>
+    </div>
+
+    <script></script>
+  </body>
+</html>

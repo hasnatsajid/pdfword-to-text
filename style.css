@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fafafa;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 15% auto;
+}
+
+.files p {
+  margin: 1rem 0px;
+  font-size: 14px;
+  padding: 0px 3rem;
+}
+
+.files label {
+  background-color: #0025ea;
+  color: white;
+  padding: 6px 3rem;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.review-edit input {
+  outline: none;
+  border: none;
+  background-color: #0025ea;
+  color: white;
+  padding: 7px 2.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 2rem 0;
+}
+
+.essay {
+  margin: 3rem 0;
+}
+
+.essay p {
+  font-size: 15px;
+}
+
+textarea {
+  font-size: 12px;
+}
