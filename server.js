@@ -17,7 +17,7 @@ const createHtml = (css, essays) => {
 <form action="/" id="uploadForm" enctype="multipart/form-data" method="post">
   <div class="files">
     <label for="files">+ Upload Essays</label>
-    <input type="file" multiple style="visibility: hidden" name="multi-files" id="files" />
+    <input type="file" multiple name="multi-files" id="files" />
     <p>Max File size</p>
   </div>
 
@@ -120,8 +120,4 @@ app.get('/', (req, res) => {
 
 app.listen(3000, () => {
   console.log('Application started and Listening on port 3000');
-});
-
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });

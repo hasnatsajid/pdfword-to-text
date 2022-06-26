@@ -13,13 +13,23 @@
   margin: 15% auto;
 }
 
+.files {
+  position: relative;
+}
+
 .files p {
   margin: 1rem 0px;
   font-size: 14px;
   padding: 0px 3rem;
 }
 
+.files input {
+  position: absolute;
+  opacity: 0;
+}
+
 .files label {
+  position: absolute;
   background-color: #0025ea;
   color: white;
   padding: 6px 3rem;
