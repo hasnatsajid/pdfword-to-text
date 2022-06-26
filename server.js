@@ -67,6 +67,16 @@ const upload = multer({
 
 // uploading multiple images together
 app.post('/', upload.array('multi-files', 200), (req, res) => {
+  fs.readdir(`${__dirname}/uploads`, (err, files) => {
+    if (err) throw err;
+
+    for (const file of files) {
+      fs.unlink(path.join(`${__dirname}/uploads`, file), (err) => {
+        if (err) throw err;
+      });
+    }
+  });
+
   try {
     fs.readdir(`${__dirname}/uploads`, function (err, files) {
       if (err) {
@@ -118,6 +128,6 @@ app.get('/', (req, res) => {
   res.send(html);
 });
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Express server listening on port %d in %s mode', this.address().port, app.settings.env);
 });
