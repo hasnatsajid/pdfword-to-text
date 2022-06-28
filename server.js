@@ -17,7 +17,7 @@ const createHtml = (css, essays) => {
 <form action="/" id="uploadForm" enctype="multipart/form-data" method="post">
   <div class="files">
     <label for="files">+ Upload Essays</label>
-    <input type="file" multiple name="multi-files" id="files" />
+    <input type="file" multiple  name="multi-files" id="files" />
     <p>Max File size</p>
   </div>
 
@@ -50,7 +50,7 @@ const upload = multer({
   limits: { fileSize: 1000000 },
   fileFilter(req, file, cb) {
     // Allowed ext
-    const filetypes = /docx|pdf/;
+    const filetypes = /docx|doc|pdf/;
 
     // Check ext
     const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
@@ -67,16 +67,6 @@ const upload = multer({
 
 // uploading multiple images together
 app.post('/', upload.array('multi-files', 200), (req, res) => {
-  fs.readdir(`${__dirname}/uploads`, (err, files) => {
-    if (err) throw err;
-
-    for (const file of files) {
-      fs.unlink(path.join(`${__dirname}/uploads`, file), (err) => {
-        if (err) throw err;
-      });
-    }
-  });
-
   try {
     fs.readdir(`${__dirname}/uploads`, function (err, files) {
       if (err) {
@@ -112,7 +102,17 @@ app.post('/', upload.array('multi-files', 200), (req, res) => {
       });
     });
 
-    // res.render(`<p>hello dear</p>`);
+    // emptying uploads folder
+    fs.readdir(`${__dirname}/uploads`, (err, files) => {
+      if (err) throw err;
+
+      for (const file of files) {
+        fs.unlink(path.join(`${__dirname}/uploads`, file), (err) => {
+          if (err) throw err;
+        });
+      }
+    });
+
     const html = createHtml(css, essays);
 
     res.send(html);
@@ -128,6 +128,6 @@ app.get('/', (req, res) => {
   res.send(html);
 });
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log('Express server listening on port %d in %s mode', this.address().port, app.settings.env);
+app.listen(3000, () => {
+  console.log('Application started and Listening on port 3000');
 });
